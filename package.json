@@ -1,0 +1,28 @@
+{
+  "name": "hackathon-sci-25",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "ci": "biome ci .",
+    "lint": "biome lint --write .",
+    "lint:fix": "biome check --write ."
+  },
+  "dependencies": {
+    "lucide-react": "^0.553.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.4",
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.1.7"
+  }
+}
