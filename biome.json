@@ -35,6 +35,9 @@
         "noUselessStringConcat": "warn",
         "useSimplifiedLogicExpression": "warn"
       },
+      "correctness": {
+        "useJsxKeyInIterable": "info"
+      },
       "nursery": {
         "useSortedClasses": {
           "level": "warn",
