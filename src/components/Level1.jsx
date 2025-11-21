@@ -2,7 +2,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import cursorImage from '../assets/cursor.png';
 
-const Level1 = () => {
+const Level1 = ({complete}) => {
     // Stan dla dynamicznego blura i diplopii
     const [blurValue, setBlurValue] = useState(0);
     const [diplopiaOffset, setDiplopiaOffset] = useState(0);
@@ -149,9 +149,7 @@ const Level1 = () => {
                     <button
                         type="button"
                         disabled={!(isInputValid1 && isInputValid2)}
-                        onClick={() => {
-                            console.log("Nastepny")
-                        }}
+                        onClick={complete}
                         className={`
                             text-white
                             font-bold
