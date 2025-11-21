@@ -11,7 +11,7 @@ function App() {
   };
 
   const levels = [
-    <Level1 test={true} complete={() => complete(1)} />,
+    <Level1 key={1} test={true} complete={() => complete(1)} />,
     <Level1 />,
   ];
 
@@ -40,11 +40,10 @@ function App() {
             <div className="flex items-center gap-2">
               <span className="font-medium text-slate-500 text-sm">Level</span>
               <div className="flex gap-1.5">
-                {/* TODO: correct key*/}
                 {levels.map((item, idx) => (
                   <input
                     type="button"
-                    key={item}
+                    key={item.key}
                     onClick={() => idx <= highestEnabled && setLevel(idx)}
                     disabled={idx > highestEnabled}
                     className={`h-8 w-8 rounded-full font-semibold text-sm transition-all ${
