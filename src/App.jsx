@@ -2,12 +2,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import Level1 from './components/Level1';
 import Level1_dummy from './components/Level1_dummy';
-import Level5 from './components/Level5.jsx';
 import Level2 from './components/Level2.jsx';
+import Level4 from './components/Level4';
+import Level5 from './components/Level5.jsx';
 
 function App() {
   const [level, setLevel] = useState(0);
-  const [highestEnabled, setHighestEnabled] = useState(0);
+  const [highestEnabled, setHighestEnabled] = useState(4);
 
   const complete = (completedLevel) => {
     setHighestEnabled((prev) => Math.max(prev, completedLevel));
@@ -17,8 +18,9 @@ function App() {
   const levels = [
     <Level1 key={1} complete={() => complete(1)} />,
     <Level2 key={2} complete={() => complete(2)} />,
-    <Level5 key={3} complete={() => complete(3)} />,
-    <Level1_dummy key={4} complete={() => complete(4)} />,
+    <Level4 key={3} complete={() => complete(3)} />,
+    <Level5 key={4} complete={() => complete(4)} />,
+    <Level1_dummy key={5} complete={() => complete(5)} />,
   ];
 
   const changeLevel = (change) => {
