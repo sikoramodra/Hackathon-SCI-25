@@ -20,15 +20,14 @@ const Level2 = ({complete}) => {
     };
 
     const [answersCorrect, setAnswersCorrect] = useState(0);
+    const [finished, setFinished] = useState(false);
 
     const checkAnswers = () => {
         console.log(q1ActiveIndex, q2ActiveIndex);
         if (q1ActiveIndex === 2 && q2ActiveIndex === 1) {
-            console.log("Correct answers!");
             setAnswersCorrect(1);
-            complete();
+            setFinished(true);
         } else {
-            console.log("Some answers are incorrect. Please try again.");
             setAnswersCorrect(2);
         }
     };
@@ -181,7 +180,7 @@ const Level2 = ({complete}) => {
                         </div>
                     </div>
 
-                    <input onTransitionEnd={() => {if(answersCorrect !== 0) setAnswersCorrect(0)}} onClick={() => {checkAnswers()}} type="button" value="Submit" className="mt-4 text-white p-2 rounded-md cursor-pointer transition-colors duration-500 outline-none"
+                    <input onTransitionEnd={() => {if(answersCorrect !== 0) {setAnswersCorrect(0)} else if(finished) {complete()}}} onClick={() => {checkAnswers()}} type="button" value="Submit" className="mt-4 text-white p-2 rounded-md cursor-pointer transition-colors duration-500 outline-none"
                     style={{
                         backgroundColor: submitBackgrounds[answersCorrect]
                     }}
