@@ -1,12 +1,18 @@
 @import 'tailwindcss';
 
 @layer base {
-    @keyframes move-sideways {
-        0%, 100% {
-            transform: translateX(-10px);
-        }
-        50% {
-            transform: translateX(10px);
-        }
+  @keyframes move-sideways {
+    0%,
+    100% {
+      transform: translateX(-10px);
     }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+}
+
+.key-active {
+  transform: scale(0.95);
+  background-color: #e5e7eb; /* To jest kolor bg-gray-200 z Tailwinda */
 }
