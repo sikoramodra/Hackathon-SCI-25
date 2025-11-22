@@ -6,10 +6,11 @@ import Level2 from './components/Level2.jsx';
 import Level3 from './components/Level3.jsx';
 import Level4 from './components/Level4';
 import Level5 from './components/Level5.jsx';
+import Level7 from './components/Level7.jsx';
 
 function App() {
   const [level, setLevel] = useState(0);
-  const [highestEnabled, setHighestEnabled] = useState(4);
+  const [highestEnabled, setHighestEnabled] = useState(7);
 
   const complete = (completedLevel) => {
     setHighestEnabled((prev) => Math.max(prev, completedLevel));
@@ -22,6 +23,8 @@ function App() {
     <Level3 key={3} complete={() => complete(3)} />,
     <Level4 key={4} complete={() => complete(4)} />,
     <Level5 key={5} complete={() => complete(5)} />,
+    <Level5 key={6} complete={() => complete(6)} />,
+    <Level7 key={7} complete={() => complete(7)} />,
   ];
 
   const changeLevel = (change) => {

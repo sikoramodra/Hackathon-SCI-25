@@ -435,7 +435,7 @@ export default function Level3({ complete }) {
 							className='w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition'
 							disabled={cutsceneIndex > 0}
 							type='submit'
-							value={'submit'}
+							value={'Wykup darmową wersję premium'}
 						/>
 					</form>
 
