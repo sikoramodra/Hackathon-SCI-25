@@ -201,7 +201,7 @@ export default function Level3({ complete }) {
           <div className="text-sm">Darmowa treść wspierana przez reklamy</div>
           <button
             type="button"
-            className="rounded bg-white px-3 py-1 text-black"
+            className="cursor-pointer rounded bg-white px-3 py-1 text-black"
             onClick={() => setShowPremiumPopup(true)}
           >
             Kliknij żeby zobaczyć ofertę
@@ -217,7 +217,7 @@ export default function Level3({ complete }) {
           <button
             type="button"
             onClick={handlePremiumClick}
-            className="ml-4 rounded bg-gray-900 px-3 py-1 text-white hover:opacity-90"
+            className="ml-4 cursor-pointer rounded bg-gray-900 px-3 py-1 text-white hover:opacity-90"
           >
             Wykup premium żeby usunąć reklamy
           </button>
@@ -267,7 +267,7 @@ export default function Level3({ complete }) {
                 <button
                   type="button"
                   onClick={() => setShowPremiumPopup(false)}
-                  className="rounded border px-3 py-1"
+                  className="cursor-pointer rounded border px-3 py-1"
                 >
                   Zamknij
                 </button>
@@ -296,7 +296,7 @@ export default function Level3({ complete }) {
                 <button
                   type="button"
                   onClick={() => setForcedInterstitial(false)}
-                  className="rounded bg-black px-4 py-2 text-white"
+                  className="cursor-pointer rounded bg-black px-4 py-2 text-white"
                 >
                   Zamknij reklamę
                 </button>
@@ -331,7 +331,7 @@ export default function Level3({ complete }) {
                 <button
                   type="button"
                   onClick={() => setTimedBlockingPopup(false)}
-                  className="rounded bg-white px-4 py-2 font-bold text-black"
+                  className="cursor-pointer rounded bg-white px-4 py-2 font-bold text-black"
                 >
                   Zamknij
                 </button>
@@ -367,7 +367,7 @@ export default function Level3({ complete }) {
                     type="button"
                     onClick={closeAd}
                     aria-label="close ad"
-                    className="absolute top-2 right-2 text-gray-400 hover:text-black"
+                    className="absolute top-2 right-2 cursor-pointer text-gray-400 hover:text-black"
                   >
                     ✕
                   </button>
@@ -453,7 +453,7 @@ export default function Level3({ complete }) {
             </div>
 
             <input
-              className="w-full rounded-lg bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700"
+              className="w-full cursor-pointer rounded-lg bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700"
               disabled={cutsceneIndex > 0}
               type="submit"
               value={'Wykup darmową wersję premium'}

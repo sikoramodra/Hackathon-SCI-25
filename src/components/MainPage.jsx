@@ -48,7 +48,7 @@ const MainPage = ({ complete }) => {
         <button
           type="button"
           onClick={complete}
-          className="group relative mt-12 overflow-hidden rounded-xl border-8 border-blue-600 px-8 py-4 font-bold text-white text-xl shadow-lg"
+          className="group relative mt-12 cursor-pointer overflow-hidden rounded-xl border-8 border-blue-600 px-8 py-4 font-bold text-white text-xl shadow-lg"
         >
           <span className="-translate-x-full absolute inset-0 z-0 transform bg-blue-600 transition-transform duration-500 ease-out group-hover:translate-x-0" />
           <span className="relative z-10">Rozpocznij</span>
