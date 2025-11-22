@@ -85,7 +85,7 @@ export default function DyslexiaLevel({ complete }) {
 	};
 
 	const handleSubmit = () => {
-		if (decodedValue.toLowerCase() === 'dysleksja') {
+		if (displayValue.toLowerCase() === 'dysleksja') {
 			complete();
 		} else {
 			setWrong(true);
