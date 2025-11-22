@@ -7,6 +7,7 @@ import Level3 from './components/Level3.jsx';
 import Level4 from './components/Level4';
 import Level5 from './components/Level5.jsx';
 import Level7 from './components/Level7.jsx';
+import Level8 from './components/Level8.jsx';
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -24,6 +25,7 @@ function App() {
     <Level4 key={4} complete={() => complete(4)} />,
     <Level5 key={5} complete={() => complete(5)} />,
     <Level7 key={6} complete={() => complete(6)} />,
+    <Level8 key={7} complete={() => complete(7)} />,
   ];
 
   const changeLevel = (change) => {
