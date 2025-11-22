@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import Level1 from './components/Level1';
 import Level1_dummy from './components/Level1_dummy';
+import Level5 from './components/Level5.jsx';
 import Level2 from './components/Level2.jsx';
 import Level3 from './components/Level3.jsx';
 import Level4 from './components/Level4';
