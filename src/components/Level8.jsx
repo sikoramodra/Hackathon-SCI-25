@@ -164,6 +164,7 @@ export default function Level8({ complete }) {
         {/* Snooze permanent */}
         <div className="mt-3">
           <button
+            type="button"
             onClick={enablePermanentSnooze}
             disabled={snoozeActive}
             className={`rounded-lg px-3 py-2 font-bold ${
@@ -204,7 +205,11 @@ export default function Level8({ complete }) {
           <div className="flex h-[500px] w-[320px] flex-col rounded-xl border border-gray-300 bg-white shadow-sm">
             {/* Header */}
             <div className="flex items-center border-gray-200 border-b p-2">
-              <img src={Person} className="mr-3 h-10 w-10 rounded-full" />
+              <img
+                alt=""
+                src={Person}
+                className="mr-3 h-10 w-10 rounded-full"
+              />
               <strong>Anna</strong>
             </div>
 
@@ -255,14 +260,15 @@ export default function Level8({ complete }) {
         {/* PHONE NOTIFICATIONS */}
         <div className="pointer-events-none absolute top-0 right-0 left-0 z-[80] flex flex-col gap-2 px-4 pt-4">
           {distractions.map((d) => (
-            <div
+            <button
+              type="button"
               key={d.id}
               className="pointer-events-auto flex animate-slideDown items-start gap-3 rounded-xl border border-gray-200 bg-white px-3 py-2 shadow-lg"
               onClick={() => dismissDistraction(d.id)}
             >
               <div className="text-xl">🔔</div>
               <div className="text-sm">{d.label}</div>
-            </div>
+            </button>
           ))}
         </div>
       </div>

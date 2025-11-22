@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LastPage from './components/LastPage.jsx';
 import Level2 from './components/Level2';
 import Level3 from './components/Level3';
@@ -14,6 +14,11 @@ function App() {
   const [highestEnabled, setHighestEnabled] = useState(7);
   const [isMainScreenSelected, setIsMainScreenSelected] = useState(true);
   const [isLastScreenSelected, setIsLastScreenSelected] = useState(false);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [level]);
 
   const complete = (completedLevel) => {
     setHighestEnabled((prev) => Math.max(prev, completedLevel));
@@ -38,7 +43,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100">
-      {!isMainScreenSelected && (
+      {!(isMainScreenSelected || isLastScreenSelected) && (
         <nav className="fixed top-0 z-10 h-20 w-full border-slate-200 bg-white/10 shadow-sm backdrop-blur-sm">
           <div className="mx-auto max-w-4xl px-4 py-4">
             <div className="flex items-center justify-between">
@@ -62,7 +67,11 @@ function App() {
                   <input
                     type="button"
                     key={item.key}
-                    onClick={() => idx <= highestEnabled && setLevel(idx)}
+                    onClick={() => {
+                      if (idx <= highestEnabled) {
+                        setLevel(idx);
+                      }
+                    }}
                     disabled={idx > highestEnabled}
                     className={`h-8 w-8 rounded-full font-semibold text-sm transition-all ${
                       level === idx

@@ -58,13 +58,13 @@ const Level5 = ({ complete }) => {
           <p className="mb-6 select-none font-semibold text-xl">
             {sentenceToType}
           </p>
-          <div className="flex">
+          <div className="flex gap-2">
             <input
               type="text"
               ref={inputRef}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Tutaj piszesz"
+              placeholder="Tutaj pojawi się wpisany tekst"
               disabled={true}
               className={inputClasses}
             />
