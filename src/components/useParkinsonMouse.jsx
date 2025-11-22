@@ -41,6 +41,12 @@ const useParkinsonMouse = ({ targetRef, onHoverChange, onKeyPress }) => {
       currentTremor.current.y +=
         (tremorTarget.current.y - currentTremor.current.y) * tremorEasingFactor;
 
+      if (realMousePos.current.y < 78) {
+        customCursorRef.current.style.opacity = 0;
+      } else {
+        customCursorRef.current.style.opacity = 1;
+      }
+
       const finalX = delayedMousePos.current.x + currentTremor.current.x;
       const finalY = delayedMousePos.current.y + currentTremor.current.y;
 
