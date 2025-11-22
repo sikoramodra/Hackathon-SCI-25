@@ -2,7 +2,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import Level1 from './components/Level1';
 import Level1_dummy from './components/Level1_dummy';
-import Level5 from './components/Level5.jsx';
 import Level2 from './components/Level2.jsx';
 import Level3 from './components/Level3.jsx';
 import Level4 from './components/Level4';
@@ -24,8 +23,7 @@ function App() {
     <Level3 key={3} complete={() => complete(3)} />,
     <Level4 key={4} complete={() => complete(4)} />,
     <Level5 key={5} complete={() => complete(5)} />,
-    <Level5 key={6} complete={() => complete(6)} />,
-    <Level7 key={7} complete={() => complete(7)} />,
+    <Level7 key={6} complete={() => complete(6)} />,
   ];
 
   const changeLevel = (change) => {

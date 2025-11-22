@@ -33,11 +33,7 @@ const Level5 = ({ complete }) => {
   const sentenceToType = 'PARKINSON';
 
   const handleSubmitClick = () => {
-    // if (inputValue.trim().length > 0) {
     setCaptchaVisible(true);
-    // } else {
-    //   alert('Najpierw spróbuj przepisać zdanie.');
-    // }
   };
 
   return (
@@ -74,8 +70,10 @@ const Level5 = ({ complete }) => {
             />
             <button
               type="button"
+              // disabled={inputValue !== 'PARKINSON'}
               onClick={handleSubmitClick}
-              className="transform cursor-none rounded-lg bg-blue-600 px-8 py-4 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700"
+              className={`transform cursor-none rounded-lg px-6 py-3 font-bold text-white shadow-lg transition-all duration-300 ${inputValue === 'PARKINSON' ? 'bg-blue-400 hover:scale-105' : 'bg-gray-400'}  
+            `}
             >
               Wyślij
             </button>
