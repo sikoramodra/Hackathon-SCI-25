@@ -1,12 +1,11 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import Level1 from './components/Level1';
-import Level1_dummy from './components/Level1_dummy';
-import Level2 from './components/Level2.jsx';
-import Level3 from './components/Level3.jsx';
+import Level2 from './components/Level2';
+import Level3 from './components/Level3';
 import Level4 from './components/Level4';
-import Level5 from './components/Level5.jsx';
-import Level7 from './components/Level7.jsx';
+import Level5 from './components/Level5';
+import Level7 from './components/Level7';
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -45,7 +44,7 @@ function App() {
               className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
             >
               <ChevronLeft className="group-hover:-translate-x-1 h-5 w-5 transition-transform group-disabled:group-hover:translate-x-0" />
-              <span>Previous</span>
+              <span>Poprzedni</span>
             </button>
 
             <div className="flex items-center gap-2">
@@ -76,7 +75,7 @@ function App() {
               onClick={() => changeLevel(+1)}
               className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
             >
-              <span>Next</span>
+              <span>Następny</span>
               <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-disabled:group-hover:translate-x-0" />
             </button>
           </div>

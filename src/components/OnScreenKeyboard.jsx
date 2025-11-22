@@ -38,7 +38,7 @@ const OnScreenKeyboard = () => {
               {key}
             </div>
           ))}
-          <div data-key="Backspace" className={`${keyClasses} flex-grow-[1.5]`}>
+          <div data-key="Backspace" className={`${keyClasses} grow-[1.5]`}>
             <BackspaceIcon />
           </div>
         </div>
@@ -67,7 +67,7 @@ const OnScreenKeyboard = () => {
 
         {/* Czwarty rząd (Spacja) */}
         <div className="flex w-full gap-2">
-          <div data-key=" " className={`${keyClasses} flex-grow-[4]`}>
+          <div data-key=" " className={`${keyClasses} grow-4`}>
             Space
           </div>
         </div>

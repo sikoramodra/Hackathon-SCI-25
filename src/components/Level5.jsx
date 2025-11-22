@@ -42,7 +42,7 @@ const Level5 = ({ complete }) => {
         alt={''}
         src={cursorImage}
         ref={customCursorRef}
-        className="pointer-events-none fixed top-0 left-0 z-[9999] h-5 w-5 bg-transparent"
+        className="pointer-events-none fixed top-0 left-0 z-9999 h-5 w-5 bg-transparent"
       />
 
       <div className="w-full max-w-2xl text-center">

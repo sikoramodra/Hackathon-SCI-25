@@ -125,6 +125,7 @@ const CaptchaModal = ({
     }
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: useEffect
   useEffect(() => {
     if (!customCursorCoords) return;
     const id = setInterval(() => {
