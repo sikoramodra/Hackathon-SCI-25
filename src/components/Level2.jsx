@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Level2 = () => {
+const Level2 = ({complete}) => {
 
     const [q1ActiveIndex, setQ1ActiveIndex] = useState(null);
 
@@ -26,6 +26,7 @@ export const Level2 = () => {
         if (q1ActiveIndex === 2 && q2ActiveIndex === 1) {
             console.log("Correct answers!");
             setAnswersCorrect(1);
+            complete();
         } else {
             console.log("Some answers are incorrect. Please try again.");
             setAnswersCorrect(2);
@@ -192,3 +193,5 @@ export const Level2 = () => {
         </div>
     </>;
 }
+
+export default Level2;

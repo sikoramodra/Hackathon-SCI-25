@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Level1 from './components/Level1';
 import Level1_dummy from './components/Level1_dummy';
 import Level5 from './components/Level5.jsx';
+import Level2 from './components/Level2.jsx';
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -15,8 +16,9 @@ function App() {
 
   const levels = [
     <Level1 key={1} complete={() => complete(1)} />,
-    <Level5 key={2} complete={() => complete(2)} />,
-    <Level1_dummy key={3} complete={() => complete(3)} />,
+    <Level2 key={2} complete={() => complete(2)} />,
+    <Level5 key={3} complete={() => complete(3)} />,
+    <Level1_dummy key={4} complete={() => complete(4)} />,
   ];
 
   const changeLevel = (change) => {
