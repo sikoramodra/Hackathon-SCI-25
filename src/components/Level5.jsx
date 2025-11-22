@@ -70,7 +70,7 @@ const Level5 = ({ complete }) => {
             />
             <button
               type="button"
-              // disabled={inputValue !== 'PARKINSON'}
+              disabled={inputValue !== 'PARKINSON'}
               onClick={handleSubmitClick}
               className={`transform cursor-none rounded-lg px-6 py-3 font-bold text-white shadow-lg transition-all duration-300 ${inputValue === 'PARKINSON' ? 'bg-blue-400 hover:scale-105' : 'bg-gray-400'}  
             `}

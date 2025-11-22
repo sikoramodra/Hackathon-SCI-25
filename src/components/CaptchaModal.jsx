@@ -144,7 +144,12 @@ const CaptchaModal = ({
         <h2 className="mb-4 font-bold text-2xl text-gray-800">
           Udowodnij, że nie jesteś robotem
         </h2>
-
+        <h4>Przeciągnij mysz od zielonego do czerwonego bez dotykania ścian</h4>
+        {!(started || failMsg) && (
+          <div className="text-gray-700 text-sm">
+            Najedź na zielony START, aby rozpocząć.
+          </div>
+        )}
         <div className="flex flex-col items-center justify-around gap-7 p-3">
           <canvas
             ref={canvasRef}
@@ -154,12 +159,6 @@ const CaptchaModal = ({
           />
 
           {failMsg && <div className="text-lg text-red-600">{failMsg}</div>}
-
-          {!(started || failMsg) && (
-            <div className="text-gray-700 text-sm">
-              Najedź na zielony START, aby rozpocząć.
-            </div>
-          )}
         </div>
       </div>
     </div>

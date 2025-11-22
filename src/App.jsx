@@ -27,9 +27,9 @@ function App() {
   };
 
   const levels = [
-    <Level2 key={1} complete={() => complete(1)} />,
+    <Level4 key={1} complete={() => complete(1)} />,
     <Level3 key={2} complete={() => complete(2)} />,
-    <Level4 key={3} complete={() => complete(3)} />,
+    <Level2 key={3} complete={() => complete(3)} />,
     <Level5 key={4} complete={() => complete(4)} />,
     <Level6 key={5} complete={() => complete(5)} />,
     <Level7 key={6} complete={() => complete(6)} />,
@@ -40,7 +40,12 @@ function App() {
 
     setLevel((prev) => {
       const newLevel = prev + change;
-      return newLevel >= 0 && newLevel < levels.length ? newLevel : prev;
+      if (newLevel < 0) return prev;
+      if (newLevel === levels.length) {
+        setIsLastScreenSelected(true);
+        return prev;
+      }
+      return newLevel;
     });
   };
 

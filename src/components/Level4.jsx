@@ -68,11 +68,13 @@ function Level4({ complete }) {
       console.log(correct, newSelections);
 
       if (allCorrect) {
-        complete();
         setFeedback({
           message: 'Poprawnie! Przejdź do następnego poziomu.',
           type: 'success',
         });
+        setTimeout(() => {
+          complete();
+        }, '1000');
       } else {
         setSelections({ 1: '', 2: '', 3: '', 4: '' });
         setFeedback({
