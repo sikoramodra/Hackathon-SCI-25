@@ -37,7 +37,7 @@ const Level5 = ({ complete }) => {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full cursor-none flex-col items-center overflow-hidden bg-gray-100 p-5 text-gray-800">
+    <div className="relative flex min-h-screen w-full cursor-none flex-col items-center overflow-hidden bg-gray-100 py-24 text-gray-800">
       <img
         alt={''}
         src={cursorImage}

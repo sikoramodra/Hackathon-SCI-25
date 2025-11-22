@@ -1,12 +1,12 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
-import Level1 from './components/Level1';
 import Level2 from './components/Level2';
 import Level3 from './components/Level3';
 import Level4 from './components/Level4';
-import Level5 from './components/Level5';
-import Level7 from './components/Level7';
-import Level8 from './components/Level8';
+import Level5 from './components/Level5.jsx';
+import Level7 from './components/Level7.jsx';
+import MainPage from './components/MainPage.jsx';
+import Level8 from "./components/Level8.jsx";
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -19,12 +19,12 @@ function App() {
   };
 
   const levels = [
-      <Level2 key={1} complete={() => complete(1)} />,
-      <Level3 key={2} complete={() => complete(2)} />,
-      <Level4 key={3} complete={() => complete(3)} />,
-      <Level5 key={4} complete={() => complete(4)} />,
-      <Level7 key={5} complete={() => complete(5)} />,
-      <Level8 key={5} complete={() => complete(5)} />
+    <Level2 key={1} complete={() => complete(1)} />,
+    <Level3 key={2} complete={() => complete(2)} />,
+    <Level4 key={3} complete={() => complete(3)} />,
+    <Level5 key={4} complete={() => complete(4)} />,
+    <Level7 key={5} complete={() => complete(5)} />,
+      <Level8 key={6} complete={() => complete(6)} />
   ];
 
   const changeLevel = (change) => {
@@ -42,12 +42,17 @@ function App() {
             <div className="flex items-center justify-between">
               <button
                 type="button"
-                disabled={level === 0}
-                onClick={() => changeLevel(-1)}
+                onClick={() => {
+                  if (level === 0) {
+                    setIsMainScreenSelected(true);
+                  } else {
+                    complete(-1);
+                  }
+                }}
                 className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
               >
                 <ChevronLeft className="group-hover:-translate-x-1 h-5 w-5 transition-transform group-disabled:group-hover:translate-x-0" />
-                <span>Poprzedni</span>
+                <span>{level === 0 ? 'Strona Główna' : 'Poprzedni'}</span>
               </button>
 
               <div className="flex gap-1.5">
@@ -66,30 +71,30 @@ function App() {
                   />
                 ))}
               </div>
-            </div>
 
-            <button
-              type="button"
-              disabled={
-                level + 1 > highestEnabled || level === levels.length - 1
-              }
-              onClick={() => changeLevel(+1)}
-              className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
-            >
-              <span>Następny</span>
-              <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-disabled:group-hover:translate-x-0" />
-            </button>
+              <button
+                type="button"
+                disabled={
+                  level + 1 > highestEnabled || level === levels.length - 1
+                }
+                onClick={() => changeLevel(+1)}
+                className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
+              >
+                <span>Następny</span>
+                <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-disabled:group-hover:translate-x-0" />
+              </button>
+            </div>
           </div>
-      </nav>
+        </nav>
       )}
 
-          <main>
-      {isMainScreenSelected ? (
-          <Level1 complete={() => setIsMainScreenSelected(false)} />
-  ) : (
-        levels.at(level)
-    )}
-</main>
+      <main>
+        {isMainScreenSelected ? (
+          <MainPage complete={() => setIsMainScreenSelected(false)} />
+        ) : (
+          levels.at(level)
+        )}
+      </main>
     </div>
   );
 }

@@ -154,9 +154,9 @@ export default function Level3({ complete }) {
   };
 
   return (
-    <div className="relative bg-white p-6 font-sans text-gray-900">
-      <div className="fixed top-0 right-0 left-0 z-50">
-        <div className="w-full animate-pulse bg-yellow-400 px-4 py-2 text-center font-bold text-black">
+    <div className="relative bg-white p-6 pt-20 font-sans text-gray-900">
+      <div className="fixed top-20 right-0 left-0 z-50">
+        <div className="w-full animate-pulse select-none bg-yellow-400 px-4 py-2 text-center font-bold text-black">
           TOP PROMO: Kup premium, żeby uniknąć natrętnych reklam! ✨
         </div>
       </div>

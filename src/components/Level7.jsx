@@ -104,7 +104,7 @@ export default function DyslexiaLevel({ complete }) {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-blue-50">
+    <div className="flex min-h-screen items-center justify-center bg-blue-50 pt-20">
       <style>
         {`.wrong {
                     background-color: red;

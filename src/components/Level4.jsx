@@ -94,7 +94,7 @@ function Level4({ complete }) {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-50 p-8">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-50 p-8 pt-24">
       {feedback.message && (
         <div
           className={`-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-50 w-full max-w-sm cursor-pointer rounded border px-4 py-3 shadow-lg ${getFeedbackStyles()}`}
@@ -131,7 +131,7 @@ function Level4({ complete }) {
               type="button"
               key={mode.name}
               onClick={() => setVisionMode(mode)}
-              className="cursor-pointer rounded-lg border-2 border-slate-400 px-6 py-3 font-medium transition-all"
+              className={`cursor-pointer rounded-lg border-2 border-slate-400 px-6 py-3 font-medium transition-all ${visionMode.name === mode.name ? 'bg-slate-300' : ''}`}
             >
               {mode.name}
             </button>

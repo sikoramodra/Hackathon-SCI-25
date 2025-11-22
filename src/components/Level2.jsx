@@ -46,14 +46,14 @@ const Level2 = ({ complete }) => {
 
   return (
     <div
-      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-slate-50"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-slate-50 pt-20"
       style={{
         backgroundColor: 'hsla(0, 100%, 50%, 1)',
         backgroundImage: background,
       }}
     >
       {/* form div */}
-      <div className="w-150 rounded-3xl bg-[rgba(255,255,255,0.1)] [box-shadow:0_0_50px_50px_rgba(255,255,255,0.1)]">
+      <div className="my-4 w-150 rounded-3xl bg-[rgba(255,255,255,0.1)] [box-shadow:0_0_50px_50px_rgba(255,255,255,0.1)]">
         {/* header */}
         <h1 className="mb-2 font-semibold text-3xl">Bariera Językowa</h1>
         <p className="mb-2 text-justify">
