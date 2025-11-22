@@ -15,7 +15,7 @@ const useParkinsonMouse = ({ targetRef, onHoverChange, onKeyPress }) => {
 
   useEffect(() => {
     const easingFactor = 0.04;
-    const tremorAmount = 50;
+    const tremorAmount = 30;
     const tremorUpdateInterval = 50;
     const tremorEasingFactor = 0.05;
 
