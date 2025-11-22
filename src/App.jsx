@@ -11,6 +11,7 @@ import Level8 from './components/Level8';
 function App() {
   const [level, setLevel] = useState(0);
   const [highestEnabled, setHighestEnabled] = useState(7);
+  const [isMainScreenSelected, setIsMainScreenSelected] = useState(true);
 
   const complete = (completedLevel) => {
     setHighestEnabled((prev) => Math.max(prev, completedLevel));
@@ -18,13 +19,12 @@ function App() {
   };
 
   const levels = [
-    <Level1 key={1} complete={() => complete(1)} />,
-    <Level2 key={2} complete={() => complete(2)} />,
-    <Level3 key={3} complete={() => complete(3)} />,
-    <Level4 key={4} complete={() => complete(4)} />,
-    <Level5 key={5} complete={() => complete(5)} />,
-    <Level7 key={6} complete={() => complete(6)} />,
-    <Level8 key={7} complete={() => complete(7)} />,
+      <Level2 key={1} complete={() => complete(1)} />,
+      <Level3 key={2} complete={() => complete(2)} />,
+      <Level4 key={3} complete={() => complete(3)} />,
+      <Level5 key={4} complete={() => complete(4)} />,
+      <Level7 key={5} complete={() => complete(5)} />,
+      <Level8 key={5} complete={() => complete(5)} />
   ];
 
   const changeLevel = (change) => {
@@ -36,21 +36,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100">
-      <nav className="sticky top-0 z-10 border-slate-200 border-b bg-white/80 shadow-sm backdrop-blur-sm">
-        <div className="mx-auto max-w-4xl px-4 py-4">
-          <div className="flex items-center justify-between">
-            <button
-              type="button"
-              disabled={level === 0}
-              onClick={() => changeLevel(-1)}
-              className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
-            >
-              <ChevronLeft className="group-hover:-translate-x-1 h-5 w-5 transition-transform group-disabled:group-hover:translate-x-0" />
-              <span>Poprzedni</span>
-            </button>
+      {!isMainScreenSelected && (
+        <nav className="fixed top-0 z-10 h-20 w-full border-slate-200 bg-white/10 shadow-sm backdrop-blur-sm">
+          <div className="mx-auto max-w-4xl px-4 py-4">
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                disabled={level === 0}
+                onClick={() => changeLevel(-1)}
+                className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
+              >
+                <ChevronLeft className="group-hover:-translate-x-1 h-5 w-5 transition-transform group-disabled:group-hover:translate-x-0" />
+                <span>Poprzedni</span>
+              </button>
 
-            <div className="flex items-center gap-2">
-              <span className="font-medium text-slate-500 text-sm">Level</span>
               <div className="flex gap-1.5">
                 {levels.map((item, idx) => (
                   <input
@@ -81,10 +80,16 @@ function App() {
               <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-disabled:group-hover:translate-x-0" />
             </button>
           </div>
-        </div>
       </nav>
+      )}
 
-      <main>{levels.at(level)}</main>
+          <main>
+      {isMainScreenSelected ? (
+          <Level1 complete={() => setIsMainScreenSelected(false)} />
+  ) : (
+        levels.at(level)
+    )}
+</main>
     </div>
   );
 }

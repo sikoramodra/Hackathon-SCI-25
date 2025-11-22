@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <explanation> */
 import { useEffect, useRef, useState } from 'react';
 
 const CaptchaModal = ({
