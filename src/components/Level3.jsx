@@ -154,77 +154,71 @@ export default function Level3({ complete }) {
   };
 
   return (
-    <div className="relative bg-white p-6 pt-20 font-sans text-gray-900">
-      <div className="fixed top-20 right-0 left-0 z-50">
-        <div className="w-full animate-pulse select-none bg-yellow-400 px-4 py-2 text-center font-bold text-black">
-          TOP PROMO: Kup premium, żeby uniknąć natrętnych reklam! ✨
-        </div>
-      </div>
+		<div className='relative bg-white p-6 pt-20 font-sans text-gray-900'>
+			<div className='fixed top-20 right-0 left-0 z-50'>
+				<div className='w-full animate-pulse select-none bg-yellow-400 px-4 py-2 text-center font-bold text-black'>
+					TOP PROMO: Kup premium, żeby uniknąć natrętnych reklam! ✨
+				</div>
+			</div>
 
-      <aside className="fixed top-20 right-4 z-40 hidden w-48 flex-col gap-4 lg:flex">
-        <div className="animate-bounce rounded border bg-white p-2 shadow-lg">
-          <img
-            src={premiumImg}
-            alt="kup premium"
-            className="h-28 w-full rounded object-cover"
-          />
-          <div className="mt-2 text-xs">
-            <p>Kup premium i usuń reklamy na miesiąc!</p>
-            <p>Jedynie 39,99 zł</p>
-          </div>
-        </div>
-        <div className="rounded border bg-white p-2 shadow-lg">
-          <img
-            src={bocianImg}
-            alt="pozyczki bociana"
-            className="h-28 w-full rounded object-cover"
-          />
-          <div className="mt-2 text-xs">
-            <p>Nie masz pieniędzy na zakup wersji premium?</p>
-            <p>Weź chwilówkę i ciesz się stroną bez reklam</p>
-          </div>
-        </div>
-        <div className="animate-pulse rounded border bg-white p-2 shadow-lg">
-          <img
-            src={newsletterImg}
-            alt="newsletter"
-            className="h-28 w-full rounded object-cover"
-          />
-          <div className="mt-2 text-xs">
-            Zapisz się i nie przegap nowych artykułów
-          </div>
-        </div>
-      </aside>
+			<aside className='fixed top-20 right-4 z-40 hidden w-48 flex-col gap-4 lg:flex'>
+				<div className='animate-bounce  mt-25 rounded border bg-white p-2 shadow-lg'>
+					<img
+						src={premiumImg}
+						alt='kup premium'
+						className='h-28 w-full rounded object-cover'
+					/>
+					<div className='mt-2 text-xs'>
+						<p>Kup premium i usuń reklamy na miesiąc!</p>
+						<p>Jedynie 39,99 zł</p>
+					</div>
+				</div>
+				<div className='rounded border bg-white p-2 shadow-lg'>
+					<img
+						src={bocianImg}
+						alt='pozyczki bociana'
+						className='h-28 w-full rounded object-cover'
+					/>
+					<div className='mt-2 text-xs'>
+						<p>Nie masz pieniędzy na zakup wersji premium?</p>
+						<p>Weź chwilówkę i ciesz się stroną bez reklam</p>
+					</div>
+				</div>
+				<div className='animate-pulse rounded border bg-white p-2 shadow-lg'>
+					<img
+						src={newsletterImg}
+						alt='newsletter'
+						className='h-28 w-full rounded object-cover'
+					/>
+					<div className='mt-2 text-xs'>Zapisz się i nie przegap nowych artykułów</div>
+				</div>
+			</aside>
 
-      <div className="-translate-x-1/2 fixed bottom-4 left-1/2 z-50 transform">
-        <div className="flex items-center gap-4 rounded-lg bg-black px-4 py-2 text-white shadow-lg">
-          <div className="text-sm">Darmowa treść wspierana przez reklamy</div>
-          <button
-            type="button"
-            className="cursor-pointer rounded bg-white px-3 py-1 text-black"
-            onClick={() => setShowPremiumPopup(true)}
-          >
-            Kliknij żeby zobaczyć ofertę
-          </button>
-        </div>
-      </div>
+			<div className='-translate-x-1/2 fixed bottom-4 left-1/2 z-50 transform'>
+				<div className='flex items-center gap-4 rounded-lg bg-black px-4 py-2 text-white shadow-lg'>
+					<div className='text-sm'>Darmowa treść wspierana przez reklamy</div>
+					<button
+						type='button'
+						className='cursor-pointer rounded bg-white px-3 py-1 text-black'
+						onClick={() => setShowPremiumPopup(true)}>
+						Kliknij żeby zobaczyć ofertę
+					</button>
+				</div>
+			</div>
 
-      <header className="mx-auto max-w-4xl pt-12">
-        <div className="flex items-center gap-4">
-          <h1 className="font-bold text-2xl">
-            Bariera finansowa w dostępie do treści
-          </h1>
-          <button
-            type="button"
-            onClick={handlePremiumClick}
-            className="ml-4 cursor-pointer rounded bg-gray-900 px-3 py-1 text-white hover:opacity-90"
-          >
-            Wykup premium żeby usunąć reklamy
-          </button>
-        </div>
-      </header>
+			<header className='mx-auto max-w-4xl pt-12'>
+				<div className='flex items-center gap-4'>
+					<h1 className='font-bold text-2xl'>Bariera finansowa w dostępie do treści</h1>
+					<button
+						type='button'
+						onClick={handlePremiumClick}
+						className='ml-4 cursor-pointer rounded bg-gray-900 px-3 py-1 text-white hover:opacity-90'>
+						Wykup premium żeby usunąć reklamy
+					</button>
+				</div>
+			</header>
 
-      <style>{`
+			<style>{`
           @keyframes neonChange {
             0% { color: #ff00ff; }
             20% { color: #00eaff; }
@@ -245,244 +239,246 @@ export default function Level3({ complete }) {
           .d7 { animation-delay: 0.3s; }
         `}</style>
 
-      <div className="fixed flex flex-col font-bold text-7xl leading-tight">
-        <span className="flash d1">R</span>
-        <span className="flash d2">E</span>
-        <span className="flash d3">K</span>
-        <span className="flash d4">L</span>
-        <span className="flash d5">A</span>
-        <span className="flash d6">M</span>
-        <span className="flash d7">A</span>
-      </div>
+			<div className='fixed flex flex-col font-bold text-7xl leading-tight'>
+				<span className='flash d1'>R</span>
+				<span className='flash d2'>E</span>
+				<span className='flash d3'>K</span>
+				<span className='flash d4'>L</span>
+				<span className='flash d5'>A</span>
+				<span className='flash d6'>M</span>
+				<span className='flash d7'>A</span>
+			</div>
 
-      <main className="mx-auto mt-6 max-w-3xl">
-        {showPremiumPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-            <div className="w-[350px] rounded-lg bg-white p-6 text-center">
-              <h2 className="mb-2 font-semibold text-xl">Zakup premium</h2>
-              <b>Cena miesięcznej subskrybcji: 39,99 zł</b>
-              <p>Saldo konta: {fakeMoney} zł</p>
-              <p className="text-red-500">Brak środków na koncie</p>
-              <div className="mt-4 flex justify-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShowPremiumPopup(false)}
-                  className="cursor-pointer rounded border px-3 py-1"
-                >
-                  Zamknij
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+			<main className='mx-auto mt-6 max-w-3xl'>
+				{showPremiumPopup && (
+					<div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60'>
+						<div className='w-[350px] rounded-lg bg-white p-6 text-center'>
+							<h2 className='mb-2 font-semibold text-xl'>Zakup premium</h2>
+							<b>Cena miesięcznej subskrybcji: 39,99 zł</b>
+							<p>Saldo konta: {fakeMoney} zł</p>
+							<p className='text-red-500'>Brak środków na koncie</p>
+							<div className='mt-4 flex justify-center gap-2'>
+								<button
+									type='button'
+									onClick={() => setShowPremiumPopup(false)}
+									className='cursor-pointer rounded border px-3 py-1'>
+									Zamknij
+								</button>
+							</div>
+						</div>
+					</div>
+				)}
 
-        {forcedInterstitial && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 p-6">
-            <div className="max-w-xl text-center">
-              <h2 className="mb-2 font-bold text-2xl">
-                Dzięki reklamom oglądasz za darmo
-              </h2>
-              <p className="mb-4">
-                Ta treść jest dostępna za darmo dzięki reklamom. Wersja premium
-                usuwa takie blokady. Kup już teraz i pozbąć się denerwujących
-                reklam!
-              </p>
-              <img
-                src={premiumImg}
-                alt="big ad"
-                className="mx-auto mb-4 h-96 rounded shadow"
-              />
-              <div className="flex justify-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setForcedInterstitial(false)}
-                  className="cursor-pointer rounded bg-black px-4 py-2 text-white"
-                >
-                  Zamknij reklamę
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setForcedInterstitial(false);
-                    setShowPremiumPopup(true);
-                  }}
-                  className="rounded border px-4 py-2"
-                >
-                  Zobacz ofertę premium
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+				{forcedInterstitial && (
+					<div className='fixed inset-0 z-50 flex items-center justify-center bg-white/95 p-6'>
+						<div className='max-w-xl text-center'>
+							<h2 className='mb-2 font-bold text-2xl'>
+								Dzięki reklamom oglądasz za darmo
+							</h2>
+							<p className='mb-4'>
+								Ta treść jest dostępna za darmo dzięki reklamom. Wersja premium
+								usuwa takie blokady. Kup już teraz i pozbąć się denerwujących
+								reklam!
+							</p>
+							<img
+								src={premiumImg}
+								alt='big ad'
+								className='mx-auto mb-4 h-96 rounded shadow'
+							/>
+							<div className='flex justify-center gap-3'>
+								<button
+									type='button'
+									onClick={() => setForcedInterstitial(false)}
+									className='cursor-pointer rounded bg-black px-4 py-2 text-white'>
+									Zamknij reklamę
+								</button>
+								<button
+									type='button'
+									onClick={() => {
+										setForcedInterstitial(false);
+										setShowPremiumPopup(true);
+									}}
+									className='rounded border px-4 py-2'>
+									Zobacz ofertę premium
+								</button>
+							</div>
+						</div>
+					</div>
+				)}
 
-        {timedBlockingPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-6 text-white">
-            <div className="max-w-lg text-center">
-              <h2 className="mb-2 font-bold text-xl">
-                Ta wersja strony wymusza przerwy na reklamy
-              </h2>
-              {randomGif && (
-                <img className="m-auto" src={randomGif} alt="reklama" />
-              )}
-              <p className="mb-4">
-                Możesz zamknąć to okno za <strong>{countdown}</strong> s
-              </p>
-              {countdown === 0 ? (
-                <button
-                  type="button"
-                  onClick={() => setTimedBlockingPopup(false)}
-                  className="cursor-pointer rounded bg-white px-4 py-2 font-bold text-black"
-                >
-                  Zamknij
-                </button>
-              ) : (
-                ''
-              )}
-            </div>
-          </div>
-        )}
+				{timedBlockingPopup && (
+					<div className='fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-6 text-white'>
+						<div className='max-w-lg text-center'>
+							<h2 className='mb-2 font-bold text-xl'>
+								Ta wersja strony wymusza przerwy na reklamy
+							</h2>
+							{randomGif && (
+								<img
+									className='m-auto'
+									src={randomGif}
+									alt='reklama'
+								/>
+							)}
+							<p className='mb-4'>
+								Możesz zamknąć to okno za <strong>{countdown}</strong> s
+							</p>
+							{countdown === 0 ? (
+								<button
+									type='button'
+									onClick={() => setTimedBlockingPopup(false)}
+									className='cursor-pointer rounded bg-white px-4 py-2 font-bold text-black'>
+									Zamknij
+								</button>
+							) : (
+								''
+							)}
+						</div>
+					</div>
+				)}
 
-        <article className="mt-6 space-y-10">
-          {articleParagraphs.map((p, i) => {
-            const ad = getAdForSlot(i);
-            return (
-              <section key={p} className="prose max-w-none">
-                <p className="text-lg leading-7">{p}</p>
+				<article className='mt-6 space-y-10'>
+					{articleParagraphs.map((p, i) => {
+						const ad = getAdForSlot(i);
+						return (
+							<section
+								key={p}
+								className='prose max-w-none'>
+								<p className='text-lg leading-7'>{p}</p>
 
-                <div className="relative my-4 rounded border border-gray-200 bg-gray-50 p-3">
-                  <strong>Reklama</strong>
-                  <img
-                    src={ad.image}
-                    alt={ad.title}
-                    className="m-auto h-64 rounded object-cover"
-                  />
-                  <div className="m-auto mt-2 flex w-96 items-center gap-4 rounded border bg-white p-3">
-                    <div>
-                      <strong>{ad.title}</strong>
-                      <div className="text-sm">{ad.description}</div>
-                    </div>
-                  </div>
+								<div className='relative my-4 rounded border border-gray-200 bg-gray-50 p-3'>
+									<strong>Reklama</strong>
+									<img
+										src={ad.image}
+										alt={ad.title}
+										className='m-auto h-64 rounded object-cover'
+									/>
+									<div className='m-auto mt-2 flex w-96 items-center gap-4 rounded border bg-white p-3'>
+										<div>
+											<strong>{ad.title}</strong>
+											<div className='text-sm'>{ad.description}</div>
+										</div>
+									</div>
 
-                  <button
-                    type="button"
-                    onClick={closeAd}
-                    aria-label="close ad"
-                    className="absolute top-2 right-2 cursor-pointer text-gray-400 hover:text-black"
-                  >
-                    ✕
-                  </button>
-                </div>
-              </section>
-            );
-          })}
-        </article>
+									<button
+										type='button'
+										onClick={closeAd}
+										aria-label='close ad'
+										className='absolute top-2 right-2 cursor-pointer text-gray-400 hover:text-black'>
+										✕
+									</button>
+								</div>
+							</section>
+						);
+					})}
+				</article>
 
-        <div className="relative mb-16">
-          <form className="space-y-4 border-t pt-4" onSubmit={handleSubmit}>
-            <h3 className="font-semibold text-gray-800 text-lg">
-              Wpisz (przykładowe) dane karty kredytowej aby otrzymać darmowy
-              okres próbny wersji premium (i przejść dalej).
-            </h3>
+				<div className='relative mb-16'>
+					<form
+						className='space-y-4 border-t pt-4'
+						onSubmit={handleSubmit}>
+						<h3 className='font-semibold text-gray-800 text-lg'>
+							Wpisz (przykładowe) dane karty kredytowej aby otrzymać darmowy okres
+							próbny wersji premium (i przejść dalej).
+						</h3>
 
-            <div>
-              <label className="block font-medium text-gray-700 text-sm">
-                Name on Card
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  required={true}
-                  className="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
-                  onInput={(e) => {
-                    e.target.value = e.target.value.replace(/[^a-zA-Z ]/g, '');
-                  }}
-                />
-              </label>
-            </div>
+						<div>
+							<label className='block font-medium text-gray-700 text-sm'>
+								Name on Card
+								<input
+									type='text'
+									placeholder='John Doe'
+									required={true}
+									className='mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300'
+									onInput={(e) => {
+										e.target.value = e.target.value.replace(/[^a-zA-Z ]/g, '');
+									}}
+								/>
+							</label>
+						</div>
 
-            <div>
-              <label className="block font-medium text-gray-700 text-sm">
-                Card Number
-                <input
-                  type="text"
-                  placeholder="1234 5678 9012 3456"
-                  inputMode="numeric"
-                  required={true}
-                  className="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
-                  onInput={(e) => {
-                    const v = e.target.value.replace(/\D/g, '').slice(0, 16);
-                    e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
-                  }}
-                />
-              </label>
-            </div>
+						<div>
+							<label className='block font-medium text-gray-700 text-sm'>
+								Card Number
+								<input
+									type='text'
+									placeholder='1234 5678 9012 3456'
+									inputMode='numeric'
+									required={true}
+									className='mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300'
+									onInput={(e) => {
+										const v = e.target.value.replace(/\D/g, '').slice(0, 16);
+										e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
+									}}
+								/>
+							</label>
+						</div>
 
-            <div>
-              <label className="block font-medium text-gray-700 text-sm">
-                Expiration (MM/YY)
-                <input
-                  type="text"
-                  placeholder="08/27"
-                  inputMode="numeric"
-                  required={true}
-                  className="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
-                  onInput={(e) => {
-                    let v = e.target.value.replace(/\D/g, '').slice(0, 4);
-                    if (v.length >= 3) v = v.replace(/(\d{2})(\d+)/, '$1/$2');
-                    e.target.value = v;
-                  }}
-                />
-              </label>
-            </div>
+						<div>
+							<label className='block font-medium text-gray-700 text-sm'>
+								Expiration (MM/YY)
+								<input
+									type='text'
+									placeholder='08/27'
+									inputMode='numeric'
+									required={true}
+									className='mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300'
+									onInput={(e) => {
+										let v = e.target.value.replace(/\D/g, '').slice(0, 4);
+										if (v.length >= 3) v = v.replace(/(\d{2})(\d+)/, '$1/$2');
+										e.target.value = v;
+									}}
+								/>
+							</label>
+						</div>
 
-            <div>
-              <label className="block font-medium text-gray-700 text-sm">
-                CVV
-                <input
-                  type="text"
-                  placeholder="123"
-                  inputMode="numeric"
-                  required={true}
-                  className="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
-                  onInput={(e) => {
-                    e.target.value = e.target.value
-                      .replace(/\D/g, '')
-                      .slice(0, 3);
-                  }}
-                />
-              </label>
-            </div>
+						<div>
+							<label className='block font-medium text-gray-700 text-sm'>
+								CVV
+								<input
+									type='text'
+									placeholder='123'
+									inputMode='numeric'
+									required={true}
+									className='mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300'
+									onInput={(e) => {
+										e.target.value = e.target.value
+											.replace(/\D/g, '')
+											.slice(0, 3);
+									}}
+								/>
+							</label>
+						</div>
 
-            <input
-              className="w-full cursor-pointer rounded-lg bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700"
-              disabled={cutsceneIndex > 0}
-              type="submit"
-              value={'Wykup darmową wersję premium'}
-            />
-          </form>
+						<input
+							className='w-full cursor-pointer rounded-lg bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700'
+							disabled={cutsceneIndex > 0}
+							type='submit'
+							value={'Wykup darmową wersję premium'}
+						/>
+					</form>
 
-          {cutsceneIndex > 0 && cutsceneIndex <= 5 && (
-            <div className="fixed inset-0 z-100 flex items-center justify-center bg-black p-10 text-center">
-              <div
-                className="animate-fadeUp text-4xl text-white opacity-0"
-                style={{
-                  animationFillMode: 'forwards',
-                  animationDuration: '1s',
-                }}
-              >
-                {cutsceneText[cutsceneIndex]}
-              </div>
-            </div>
-          )}
+					{cutsceneIndex > 0 && cutsceneIndex <= 5 && (
+						<div className='fixed inset-0 z-100 flex items-center justify-center bg-black p-10 text-center'>
+							<div
+								className='animate-fadeUp text-4xl text-white opacity-0'
+								style={{
+									animationFillMode: 'forwards',
+									animationDuration: '1s',
+								}}>
+								{cutsceneText[cutsceneIndex]}
+							</div>
+						</div>
+					)}
 
-          <style>{`
+					<style>{`
         @keyframes fadeUp {
           0% { opacity: 0; transform: translateY(20px); }
           100% { opacity: 1; transform: translateY(0); }
         }
         .animate-fadeUp { animation-name: fadeUp; }
       `}</style>
-        </div>
-      </main>
-    </div>
+				</div>
+			</main>
+		</div>
   );
 }
