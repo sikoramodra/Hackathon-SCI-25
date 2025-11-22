@@ -108,13 +108,13 @@ export default function Level6({ complete }) {
 
     return (
         <div
-            className="w-screen h-[calc(100vh-78px)] bg-slate-100 overflow-hidden relative"
+            className="w-screen h-screen bg-slate-100 overflow-hidden relative pt-20"
             onMouseMove={onMouseMove}
             onMouseUp={onMouseUp}
             onMouseDown={onMouseDown}
         >
 
-            <div ref={endCreditsRef} onTransitionEnd={() => { setTimeout(() => { complete() }, 5000); }} className="z-1 absolute top-0 left-0 w-screen h-[calc(100vh-78px)] bg-[rgba(0,0,0,0.6)] pointer-events-none flex flex-col justify-center items-center opacity-0 transition-opacity duration-1000">
+            <div ref={endCreditsRef} onTransitionEnd={() => { setTimeout(() => { complete() }, 5000); }} className="z-1 absolute top-0 left-0 w-screen h-screen pt-20 bg-[rgba(0,0,0,0.6)] pointer-events-none flex flex-col justify-center items-center opacity-0 transition-opacity duration-1000">
                 <p className="text-3xl font-bold text-white"
                     style={{
                         textShadow: '2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black'
@@ -130,11 +130,20 @@ export default function Level6({ complete }) {
             <div
                 onTransitionEnd={() => { setTimeout(() => { ShowEndCredits() }, 1000); }}
                 ref={sightIssuesRef}
-                className="z-1 absolute top-0 left-0 w-screen h-[calc(100vh-78px)] bg-transparent pointer-events-none flex flex-col justify-between items-center transition-opacity duration-1000"
+                className="z-1 absolute top-0 left-0 w-screen h-screen pt-20 bg-transparent pointer-events-none flex flex-col justify-start gap-5 items-center transition-opacity duration-1000"
                 style={{
                     backgroundImage: gradients.join(", "),
                 }}
             >
+                {/* counter */}
+                <div>
+                    <p className="text-white text-xl"
+                        style={{
+                            textShadow: '1px 0 black, -1px 0 black, 0 1px black, 0 -1px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black'
+                        }}
+                    >Znalezione przyciski: {checkedButtonsAmount}/{buttonsAmount}</p>
+                </div>
+
                 {/* header */}
                 <div className="z-10 flex flex-col items-center justify-start w-200 min-h-[calc(100vh-200px)] opacity-100">
                     <h1 className="text-3xl border-b-2 border-slate-800 pb-3 font-semibold text-white"
@@ -152,22 +161,13 @@ export default function Level6({ complete }) {
                             textShadow: '1px 0 black, -1px 0 black, 0 1px black, 0 -1px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black'
                         }}
                     >W tym przykładzie przedstawione są mroczki względne - Celem użytkownika jest znalezienie wszystkich przycisków do kliknięcia. Użytkownik musi przesuwać stronę przeciągając ją myszką, dzięki czemu będzie mógł znależć wszystkie przyciski do kliknięcia.</p>
-                    <p ref={hideRef} onClick={(e) => { e.target.parentNode.style.opacity = '0'; e.target.style.pointerEvents = 'none' }} className="text-blue-400 pointer-events-auto hover:underline cursor-pointer mt-2 text-justify w-full select-none"
+                    <p ref={hideRef} onClick={(e) => { e.target.parentNode.style.opacity = '0'; e.target.style.pointerEvents = 'none' }} className="text-blue-400 pointer-events-auto hover:underline cursor-pointer mt-2 text-justify w-fit select-none"
                         style={{
                             textShadow: '1px 0 black, -1px 0 black, 0 1px black, 0 -1px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black'
                         }}
                     >Kliknij tutaj, aby ukryć ten tekst.</p>
                     <div className="w-full flex justify-end">
                     </div>
-                </div>
-
-                {/* counter */}
-                <div>
-                    <p className="text-white text-xl"
-                        style={{
-                            textShadow: '1px 0 black, -1px 0 black, 0 1px black, 0 -1px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black'
-                        }}
-                    >Znalezione przyciski: {checkedButtonsAmount}/{buttonsAmount}</p>
                 </div>
             </div>
 
