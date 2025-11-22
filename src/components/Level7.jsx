@@ -80,20 +80,27 @@ export default function DyslexiaLevel({ complete }) {
   const [wrong, setWrong] = useState(false);
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
-    if (value.length < displayValue.length) {
-      setDisplayValue(value);
-      setDecodedValue(decodedValue.slice(0, -1));
-    } else {
-      const newChar = value[value.length - 1];
-      const lower = newChar.toLowerCase();
-      const scrambled = scrambleMap[lower] || newChar;
-      const decoded = decodeMap[scrambled] || lower;
+		const value = e.target.value;
 
-      setDisplayValue(displayValue + scrambled);
-      setDecodedValue(decodedValue + decoded);
-    }
+		if (value.length < displayValue.length) {
+			setDisplayValue(value);
+			setDecodedValue(decodedValue.slice(0, -1));
+		} else {
+			const newChar = value[value.length - 1];
+			const lower = newChar.toLowerCase();
+
+			// 70% correct, 30% scrambled
+			const useScramble = Math.random() < 0.5;
+			const scrambled = useScramble ? scrambleMap[lower] || newChar : newChar;
+
+			// decode based on what was actually written
+			const decoded = decodeMap[scrambled] || lower;
+
+			setDisplayValue(displayValue + scrambled);
+			setDecodedValue(decodedValue + decoded);
+		}
   };
+
 
   const handleSubmit = () => {
     if (displayValue.toLowerCase() === 'dysleksja') {
@@ -136,8 +143,8 @@ export default function DyslexiaLevel({ complete }) {
           className="mb-4 text-gray-900 leading-8"
           style={{ fontFamily: 'Patrick Hand, cursive' }}
         >
-          Spróbuj wpisać hasło "dysleksja", mimo że każda litera klawiatury daje
-          inną literę.
+          Spróbuj wpisać hasło "dysleksja", mimo że każda litera klawiatury może dawać
+          inną literę w wyniku.
         </p>
 
         <input
