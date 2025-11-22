@@ -8,6 +8,7 @@ import Level5 from './components/Level5.jsx';
 import Level7 from './components/Level7.jsx';
 import Level8 from './components/Level8.jsx';
 import MainPage from './components/MainPage.jsx';
+import Level6 from './components/Level6.jsx';
 
 function App() {
   const [level, setLevel] = useState(0);
@@ -25,16 +26,69 @@ function App() {
     changeLevel(1);
   };
 
+  const [activeHeaderColor, setActiveHeaderColor] = useState('white');
+
+  const headerColors = {
+    'white': {
+      levels: [0, 2],
+      navBackgroundColor: 'bg-white/80',
+      navBorderColor: 'border-slate-200',
+
+      buttonActiveTextColor: 'text-slate-700',
+      buttonDisabledTextColor: 'text-slate-400',
+      buttonBackgroundColor: 'bg-white',
+      buttonBorderColor: 'border-slate-300',
+      buttonHoverBorderColor: 'border-slate-400',
+      buttonDisabledBorderColor: 'border-slate-300',
+
+      levelActiveBgColor: 'bg-blue-500',
+      levelActiveTextColor: 'text-white',
+      levelInactiveBgColor: 'bg-slate-200',
+      levelInactiveTextColor: 'text-slate-700',
+      levelDisabledBgColor: 'bg-slate-100',
+      levelDisabledTextColor: 'text-slate-400',
+      levelActiveHoverBgColor: 'bg-slate-300',
+
+      levelLabelTextColor: 'text-slate-500',
+    },
+    'navyblue': {
+      levels: [1],
+      navBackgroundColor: 'bg-slate-900/90',
+      navBorderColor: 'border-slate-800',
+
+      buttonActiveTextColor: 'text-slate-100',
+      buttonDisabledTextColor: 'text-slate-600',
+      buttonBackgroundColor: 'bg-slate-700',
+      buttonBorderColor: 'border-slate-600',
+      buttonHoverBorderColor: 'border-slate-200',
+      buttonDisabledBorderColor: 'border-slate-800',
+
+      levelActiveBgColor: 'bg-blue-700',
+      levelActiveTextColor: 'text-white',
+      levelInactiveBgColor: 'bg-slate-600',
+      levelInactiveTextColor: 'text-slate-400',
+      levelDisabledBgColor: 'bg-slate-700',
+      levelDisabledTextColor: 'text-slate-500',
+      levelActiveHoverBgColor: 'bg-slate-700',
+
+      levelLabelTextColor: 'text-slate-200',
+    }
+  };
+
   const levels = [
     <Level2 key={1} complete={() => complete(1)} />,
     <Level3 key={2} complete={() => complete(2)} />,
     <Level4 key={3} complete={() => complete(3)} />,
     <Level5 key={4} complete={() => complete(4)} />,
-    <Level7 key={5} complete={() => complete(5)} />,
-    <Level8 key={6} complete={() => complete(6)} />,
+    <Level6 key={5} complete={() => complete(5)} />,
+    <Level7 key={6} complete={() => complete(6)} />,
+    <Level8 key={7} complete={() => complete(7)} />,
   ];
 
   const changeLevel = (change) => {
+    if (headerColors['navyblue'].levels.includes(level + change)) setActiveHeaderColor('navyblue')
+    else setActiveHeaderColor('white');
+
     setLevel((prev) => {
       const newLevel = prev + change;
       return newLevel >= 0 && newLevel < levels.length ? newLevel : prev;
@@ -73,11 +127,23 @@ function App() {
                       }
                     }}
                     disabled={idx > highestEnabled}
-                    className={`h-8 w-8 rounded-full font-semibold text-sm transition-all ${
-                      level === idx
-                        ? 'scale-110 cursor-pointer bg-blue-500 text-white shadow-lg'
-                        : 'cursor-pointer bg-slate-200 text-slate-700 hover:scale-105 hover:bg-slate-300'
-                    }disabled:bg-slate-100 disabled:scale-100 disabled:cursor-not-allowed disabled:text-slate-400 disabled:hover:bg-slate-100`}
+                    className={`
+                      h-8 w-8 rounded-full font-semibold text-sm transition-all
+                      ${(idx > highestEnabled)
+                        ? `${headerColors[activeHeaderColor].levelDisabledBgColor}
+                        ${headerColors[activeHeaderColor].levelDisabledTextColor}
+                        scale-100 cursor-not-allowed`
+                        : `${level === idx
+                          ? `${headerColors[activeHeaderColor].levelActiveBgColor}
+                          ${headerColors[activeHeaderColor].levelActiveTextColor}
+                          scale-110 shadow-lg cursor-pointer`
+                          : `${headerColors[activeHeaderColor].levelInactiveBgColor}
+                          ${headerColors[activeHeaderColor].levelInactiveTextColor}
+                          cursor-pointer hover:scale-105`
+                        }`
+                      }
+                    `}
+
                     value={idx + 1}
                   />
                 ))}
