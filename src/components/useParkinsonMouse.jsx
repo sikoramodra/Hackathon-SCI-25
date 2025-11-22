@@ -24,6 +24,7 @@ const useParkinsonMouse = ({ targetRef, onHoverChange, onKeyPress }) => {
     };
 
     // Główna pętla animacji
+    // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: complexity
     const animateCursor = (currentTime) => {
       delayedMousePos.current.x +=
         (realMousePos.current.x - delayedMousePos.current.x) * easingFactor;

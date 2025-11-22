@@ -18,7 +18,7 @@ function Level4({ complete }) {
   });
 
   const [visionMode, setVisionMode] = useState({
-    name: 'Normal',
+    name: 'Brak',
     img: ref1,
   });
 
@@ -29,7 +29,7 @@ function Level4({ complete }) {
 
   const correct = {
     1: 'Tritanopia',
-    2: 'Normal',
+    2: 'Brak',
     3: 'Deuteranopia',
     4: 'Protanopia',
   };
@@ -42,7 +42,7 @@ function Level4({ complete }) {
   ];
 
   const availableModes = [
-    { name: 'Normal', img: ref1 },
+    { name: 'Brak', img: ref1 },
     { name: 'Protanopia', img: ref2 },
     { name: 'Deuteranopia', img: ref3 },
     { name: 'Tritanopia', img: ref4 },
@@ -65,15 +65,20 @@ function Level4({ complete }) {
         (key) => newSelections[key] === correct[key],
       );
 
+      console.log(correct, newSelections);
+
       if (allCorrect) {
         complete();
         setFeedback({
-          message: 'Correct! Proceeding to the next level.',
+          message: 'Poprawnie! Przejdź do następnego poziomu.',
           type: 'success',
         });
       } else {
         setSelections({ 1: '', 2: '', 3: '', 4: '' });
-        setFeedback({ message: 'Incorrect. Please try again.', type: 'error' });
+        setFeedback({
+          message: 'Niepoprawnie. Spróbuj ponownie.',
+          type: 'error',
+        });
       }
     }
   };
@@ -98,7 +103,7 @@ function Level4({ complete }) {
         >
           <div className="flex items-center justify-between">
             <p className="font-bold">
-              {feedback.type === 'success' ? 'Success!' : 'Attention!'}
+              {feedback.type === 'success' ? 'Sukces!' : 'Uwaga!'}
             </p>
             <button
               type="button"
@@ -109,7 +114,7 @@ function Level4({ complete }) {
                 dismissFeedback();
               }}
             >
-              <span className="sr-only">Dismiss</span>
+              <span className="sr-only">Zamknij</span>
               <X className="h-5 w-5" />
             </button>
           </div>
@@ -118,7 +123,7 @@ function Level4({ complete }) {
       )}
       <div className="mb-8">
         <h2 className="mb-3 font-semibold text-2xl text-gray-900 transition-colors">
-          Sposoby widzenia:
+          Wada wzroku:
         </h2>
         <div className="flex gap-3">
           {availableModes.map((mode) => (
@@ -150,8 +155,8 @@ function Level4({ complete }) {
               onChange={(e) => validateSelects(id, e.target.value)}
               className="w-full rounded-lg border-2 border-gray-300 p-3 font-medium text-gray-700 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
             >
-              <option value="">Select vision type...</option>
-              <option value="Normal">Normal Vision</option>
+              <option value="">Wybierz wadę wzroku...</option>
+              <option value="Brak">Brak</option>
               <option value="Protanopia">Protanopia</option>
               <option value="Deuteranopia">Deuteranopia</option>
               <option value="Tritanopia">Tritanopia</option>
