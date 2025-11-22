@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import LastPage from './components/LastPage.jsx';
 import Level2 from './components/Level2';
 import Level3 from './components/Level3';
 import Level4 from './components/Level4';
@@ -12,6 +13,7 @@ function App() {
   const [level, setLevel] = useState(0);
   const [highestEnabled, setHighestEnabled] = useState(7);
   const [isMainScreenSelected, setIsMainScreenSelected] = useState(true);
+  const [isLastScreenSelected, setIsLastScreenSelected] = useState(false);
 
   const complete = (completedLevel) => {
     setHighestEnabled((prev) => Math.max(prev, completedLevel));
@@ -46,7 +48,7 @@ function App() {
                   if (level === 0) {
                     setIsMainScreenSelected(true);
                   } else {
-                    complete(-1);
+                    changeLevel(-1);
                   }
                 }}
                 className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
@@ -74,13 +76,19 @@ function App() {
 
               <button
                 type="button"
-                disabled={
-                  level + 1 > highestEnabled || level === levels.length - 1
-                }
-                onClick={() => changeLevel(+1)}
+                disabled={level + 1 > highestEnabled}
+                onClick={() => {
+                  if (level === levels.length - 1) {
+                    setIsLastScreenSelected(true);
+                  } else {
+                    changeLevel(+1);
+                  }
+                }}
                 className="group hover:-translate-y-0.5 flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-4 py-2 font-medium text-slate-700 transition-all hover:border-slate-400 hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:border-slate-300 disabled:hover:shadow-none"
               >
-                <span>Następny</span>
+                <span>
+                  {level === levels.length - 1 ? 'Strona końcowa' : 'Następny'}
+                </span>
                 <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-disabled:group-hover:translate-x-0" />
               </button>
             </div>
@@ -91,6 +99,8 @@ function App() {
       <main>
         {isMainScreenSelected ? (
           <MainPage complete={() => setIsMainScreenSelected(false)} />
+        ) : isLastScreenSelected ? (
+          <LastPage complete={() => setIsLastScreenSelected(false)} />
         ) : (
           levels.at(level)
         )}
